@@ -19,13 +19,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.text.Editable
 import android.text.TextWatcher
@@ -36,6 +34,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_contacts.*
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
@@ -55,13 +54,11 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
 
     //removed boolean type because kotlin can infer what type of variable it is
     private var mEntryValid = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+
 
         mPrefs = getPreferences(Context.MODE_PRIVATE)
         mContacts = loadContacts()
