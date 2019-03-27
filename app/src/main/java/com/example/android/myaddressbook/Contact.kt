@@ -15,4 +15,7 @@
  */
 package com.example.android.myaddressbook
 
-internal class Contact(val firstName: String, val lastName: String, var email: String?)
+//data keyword tells that the class is used for storing data
+//? at the end of a type indicates it can be a null but just String indicates non nullable
+//constructor follows class name in the parenthesis
+internal data class Contact(val firstName: String, val lastName: String, var email: String?)

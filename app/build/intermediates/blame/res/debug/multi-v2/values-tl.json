@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Christopher\\Downloads\\android-using-kotlin-master\\android-using-kotlin-master\\MyAddressBook-starter\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tl\\values-tl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Christopher\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\741bf06fb5b26fbe7da7a8069fd53cc0\\res\\values-tl\\values-tl.xml",
+                    "source": "C:\\Users\\Christopher\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\b64d180a71626241f397461352239224\\res\\values-tl\\values-tl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Christopher\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.0.aar\\890217fa7a2c79cd31f5c9d408f78b79\\res\\values-tl\\values-tl.xml",
+                    "source": "C:\\Users\\Christopher\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.0.aar\\2b52c95f989a9601f683e8206167bbb8\\res\\values-tl\\values-tl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
