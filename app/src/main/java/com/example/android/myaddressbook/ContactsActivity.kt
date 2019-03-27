@@ -31,10 +31,12 @@ import android.util.Log
 import android.util.Patterns
 import android.view.*
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_contacts.*
+import kotlinx.android.synthetic.main.contact_list_item.view.*
+import kotlinx.android.synthetic.main.content_contacts.*
+import kotlinx.android.synthetic.main.input_contact_dialog.view.*
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
@@ -101,10 +103,10 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
      * Sets up the RecyclerView: empty data set, item dividers, swipe to delete.
      */
     private fun setupRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.contact_list)
 
-        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        recyclerView.adapter = mAdapter
+
+        contact_list.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        contact_list.adapter = mAdapter
 
         // Implements swipe to delete
         val helper = ItemTouchHelper(
@@ -125,7 +127,7 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
                     }
                 })
 
-        helper.attachToRecyclerView(recyclerView)
+        helper.attachToRecyclerView(contact_list)
     }
 
     /**
@@ -141,9 +143,9 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
         val dialogView = LayoutInflater.from(this)
                 .inflate(R.layout.input_contact_dialog, null)
 
-        mFirstNameEdit = dialogView.findViewById(R.id.edittext_firstname)
-        mLastNameEdit = dialogView.findViewById(R.id.edittext_lastname)
-        mEmailEdit = dialogView.findViewById(R.id.edittext_email)
+        mFirstNameEdit = dialogView.edittext_firstname
+        mLastNameEdit = dialogView.edittext_lastname
+        mEmailEdit = dialogView.edittext_email
 
         // Listens to text changes to validate after each key press
         mFirstNameEdit.addTextChangedListener(this)
@@ -363,8 +365,8 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
         }
 
         internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var nameLabel: TextView = itemView.findViewById(R.id.textview_name)
-            var emailLabel: TextView = itemView.findViewById(R.id.textview_email)
+            var nameLabel = itemView.textview_name
+            var emailLabel = itemView.textview_email
 
             init {
 
