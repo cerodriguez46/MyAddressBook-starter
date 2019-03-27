@@ -19,7 +19,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
@@ -331,24 +330,18 @@ class ContactsActivity : AppCompatActivity(), TextWatcher {
      */
     override fun afterTextChanged(editable: Editable) {
 
-        val notEmpty: (TextView) -> Boolean = { it.text.isNotEmpty() }
+        val notEmpty: TextView.() -> Boolean = { text.isNotEmpty() }
 
-        val isEmail: (TextView) -> Boolean = {
+        val isEmail: TextView.() -> Boolean = {
             Patterns.EMAIL_ADDRESS
-                    .matcher(it.text).matches()
+                    .matcher(text).matches()
         }
 
-        val failIcon = ContextCompat.getDrawable(this,
-                R.drawable.ic_fail)
-        val passIcon = ContextCompat.getDrawable(this,
-                R.drawable.ic_pass)
 
-        mFirstNameEdit.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                if (notEmpty(mFirstNameEdit)) passIcon else failIcon, null)
-        mLastNameEdit.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                if (notEmpty(mLastNameEdit)) passIcon else failIcon, null)
-        mEmailEdit.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                if (notEmpty(mEmailEdit)) passIcon else failIcon, null)
+
+        mEntryValid = mFirstNameEdit.validateWith(validator = notEmpty) and
+                mLastNameEdit.validateWith(validator = notEmpty) and
+                mEmailEdit.validateWith(validator = isEmail)
 
         mEntryValid = notEmpty(mFirstNameEdit) and notEmpty(mLastNameEdit) and isEmail(mEmailEdit)
     }
